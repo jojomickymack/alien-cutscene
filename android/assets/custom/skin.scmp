@@ -3,7 +3,7 @@ atlasData: {
 	atlasCurrent: true
 	drawables: [
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/background.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/background.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -20,7 +20,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/button.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/button.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -37,7 +37,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/speech-lower-left.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/speech-lower-left.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -54,7 +54,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/textfield-dark.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/textfield-dark.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -71,7 +71,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/textfield-light.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/textfield-light.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -88,7 +88,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/speech003/android/assets/custom/raw/window-dark.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/window-dark.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -105,7 +105,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/walker02/android/assets/custom/skin/SDS_6x6.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/skin/SDS_6x6.png
 			bgColor: {
 				r: 0
 				g: 0
@@ -122,7 +122,7 @@ atlasData: {
 			customized: false
 		}
 		{
-			file: C:/projects/libgdx_projects/walker02/android/assets/custom/raw/window-light.png
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/window-light.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -133,6 +133,23 @@ atlasData: {
 			tint: null
 			tintName: null
 			name: window-light
+			tiled: false
+			minWidth: 0
+			minHeight: 0
+			customized: false
+		}
+		{
+			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/transparent.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			visible: true
+			tint: null
+			tintName: null
+			name: transparent
 			tiled: false
 			minWidth: 0
 			minHeight: 0
@@ -167,7 +184,7 @@ jsonData: {
 		{
 			class: com.ray3k.skincomposer.data.FontData
 			name: SDS_6x6
-			file: C:/projects/libgdx_projects/walker02/android/assets/custom/skin/SDS_6x6.fnt
+			file: C:/projects/github/alien-cutscene/android/assets/custom/skin/SDS_6x6.fnt
 		}
 	]
 	freeTypeFonts: []
@@ -797,7 +814,7 @@ jsonData: {
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
-				name: black-bg
+				name: transparent
 				clazz: com.badlogic.gdx.scenes.scene2d.ui.Label
 				properties: {
 					font: {
@@ -1691,7 +1708,7 @@ jsonData: {
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
-				name: black-bg
+				name: transparent
 				clazz: com.badlogic.gdx.scenes.scene2d.ui.Window
 				properties: {
 					background: {
@@ -1725,6 +1742,42 @@ jsonData: {
 				}
 				deletable: true
 			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: transparent
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.Window
+				properties: {
+					background: {
+						class: com.ray3k.skincomposer.data.StyleProperty
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: background
+						optional: true
+						value: transparent
+					}
+					titleFont: {
+						class: com.ray3k.skincomposer.data.StyleProperty
+						type: com.badlogic.gdx.graphics.g2d.BitmapFont
+						name: titleFont
+						optional: false
+						value: SDS_6x6
+					}
+					titleFontColor: {
+						class: com.ray3k.skincomposer.data.StyleProperty
+						type: com.badlogic.gdx.graphics.Color
+						name: titleFontColor
+						optional: true
+						value: null
+					}
+					stageBackground: {
+						class: com.ray3k.skincomposer.data.StyleProperty
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: stageBackground
+						optional: true
+						value: null
+					}
+				}
+				deletable: true
+			}
 		]
 	}
 	customClasses: []
@@ -1743,5 +1796,5 @@ preferences: {
 		value: false
 	}
 }
-saveFile: C:/projects/libgdx_projects/walker02/android/assets/custom/skin.scmp
+saveFile: C:/projects/github/alien-cutscene/android/assets/custom/skin.scmp
 }

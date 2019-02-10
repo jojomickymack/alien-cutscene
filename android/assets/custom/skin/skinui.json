@@ -33,7 +33,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 		font: SDS_6x6
 		fontColor: black
 	}
-	black-bg: {
+	transparent: {
 		font: SDS_6x6
 		fontColor: white
 	}
@@ -50,10 +50,14 @@ com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
 		titleFontColor: black
 		stageBackground: background
 	}
-	black-bg: {
+	transparent: {
 		background: window-dark
 		titleFont: SDS_6x6
 		titleFontColor: white
+	}
+	transparent: {
+		background: transparent
+		titleFont: SDS_6x6
 	}
 }
 }

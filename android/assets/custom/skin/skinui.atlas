@@ -39,6 +39,13 @@ textfield-light
   orig: 44, 44
   offset: 0, 0
   index: -1
+transparent
+  rotate: false
+  xy: 76, 108
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 window-dark
   rotate: false
   xy: 1, 47
