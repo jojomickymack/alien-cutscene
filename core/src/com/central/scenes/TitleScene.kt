@@ -46,7 +46,7 @@ class TitleScene : Group() {
         // background appears first, the fade in takes 2 seconds, it then waits 4, then fades out in 2
         // it ends the scene after a total of 8 seconds
 
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.2f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
+        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
                     AppObj.stg.addActor(StoryScene1())

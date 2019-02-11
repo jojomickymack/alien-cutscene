@@ -24,8 +24,12 @@ class TheEnd : Group() {
         label.setPosition(AppObj.stg.width / 2 - label.width / 2, AppObj.stg.height / 2 - label.height / 2)
         label.alpha = 0f
 
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.2f) } +
+        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
+                Actions.run {
+                    AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f)
+                },
+                delay(3f),
                 Actions.run {
                     AppObj.stg.clear()
                     Gdx.app.exit()

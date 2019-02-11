@@ -15,7 +15,10 @@ class Game(val application: App) : KtxScreen {
 
     init {
         AppObj.stg += TitleScene()
+
+        // you can quickly skip to whichever scene you're working on
         //AppObj.stg += StoryScene2()
+        music.volume = 0.5f
         music.play()
     }
 

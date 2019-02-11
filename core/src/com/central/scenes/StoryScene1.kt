@@ -35,7 +35,7 @@ class StoryScene1 : Group() {
         alien2.alpha = 0f
 
         background.setSize(AppObj.stg.width, AppObj.stg.height)
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.2f) } +
+        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
