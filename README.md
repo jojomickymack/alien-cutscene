@@ -16,8 +16,20 @@ This example shows a title screen and tells a short story using some Groups that
 
 Keep in mind that if you want to trigger an event that isn't necessarily an Action, you can always add 
 
-```java
+```kotlin
 Actions.run { println("call any method from here") } 
 ```
 
 and add that to an Actor or sequence.
+
+Another thing you might want to do is use some sprites in your cutscene - this project has an example of that with the alien sprite in the 2nd 'scene'. Sprite does not extend Actor, but there's no reason why you can't create a class that extends Actor and have a Sprite as a member. In order to make your Actions apply to your Sprite you'll want to transfer the position, size, and other aspects from the Actor to the Sprite in your overridden act and draw functions.
+
+```kotlin
+// in act
+sprite.setSize(this.width, this.height)
+sprite.setPosition(this.x, this.y)
+
+// in draw
+sprite.setAlpha(this.alpha)
+sprite.draw(batch)
+```
