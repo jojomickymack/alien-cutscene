@@ -1,6 +1,6 @@
 # LibGdx/Ktx Example Of Scene2d Actions and Sequences
 
-![image](https://github.com/jojomickymack/alien-cutscene/.github/cutscene01.png)
+![cutscene01](.github/cutscene01.png?raw=true)
 
 If you've ever thought to yourself that your game needs a cutscene or intro sequence, Libgdx Actions is something you'll want to look at. If you're new to scene2d, allow for me to explain.
 
@@ -16,7 +16,7 @@ If you've ever thought to yourself that your game needs a cutscene or intro sequ
 
 This example shows a title screen and tells a short story using some Groups that represent different pieces of the story. I think it's smart to split up all the actions in your cutscene into chunks like this, just because it could potentially get pretty complicated if you tried to jam your whole cutscene into one series of actions.
 
-![image](https://github.com/jojomickymack/alien-cutscene/.github/cutscene02.png)
+![cutscene02](.github/cutscene02.png?raw=true)
 
 Keep in mind that if you want to trigger an event that isn't necessarily an Action, you can always add 
 
