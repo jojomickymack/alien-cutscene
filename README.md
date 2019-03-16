@@ -1,5 +1,7 @@
 # LibGdx/Ktx Example Of Scene2d Actions and Sequences
 
+![image](https://github.com/jojomickymack/alien-cutscene/.github/cutscene01.png)
+
 If you've ever thought to yourself that your game needs a cutscene or intro sequence, Libgdx Actions is something you'll want to look at. If you're new to scene2d, allow for me to explain.
 
 - Scene2d is an optional framework that is part of Libgdx which allow for you to add 'Actors' to a 'Stage'. The advantage of this is that by adding your actors to a stage, and then calling the stage's act and draw methods in your game loop, all actors will automatically have their act and draw methods called.
@@ -13,6 +15,8 @@ If you've ever thought to yourself that your game needs a cutscene or intro sequ
 - LibKtx has some really helpful syntax helpers that make it so you can add Actors to a Stage, an Action to an Actor, or add Actions to a sequence by using the += operator.
 
 This example shows a title screen and tells a short story using some Groups that represent different pieces of the story. I think it's smart to split up all the actions in your cutscene into chunks like this, just because it could potentially get pretty complicated if you tried to jam your whole cutscene into one series of actions.
+
+![image](https://github.com/jojomickymack/alien-cutscene/.github/cutscene02.png)
 
 Keep in mind that if you want to trigger an event that isn't necessarily an Action, you can always add 
 
