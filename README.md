@@ -21,7 +21,7 @@ properties of object literals and companion objects are compiled to static prope
 
 This means that using static members like this is fine on desktop, but on Android there's no guarentee that your static resource will behave 
 the same way. Kotlin makes a lot of things static which might not appear that way (especially since the word 'static' doesn't exist in 
-kotlin). For example, if you just put a methods and variables all on their own in a file, they are static. 
+kotlin). For example, if you just put a methods and variables all on their own in a file, they are static.
 
 On top of that, because libgdx is circumventing the java garbage collector, a lot of objects need to be 'disposed of'. While there's no 
 apparent penelty for not doing this, in reality the memory isn't getting released. That's what a memory leak is. All you have to do is keep 
@@ -30,8 +30,8 @@ Screen.
 
 There is a list of what objects require this in the [libgdx documentation on memory management](https://github.com/libgdx/libgdx/wiki/Memory-management)
 
-While my games only have 1 or 2 stages and spritebatches, there's often a lot more textures and sounds to keep track of. That would become a 
-heck of a lot of work making sure every single picture got its dispose() method called. 
+While my games only have 1 or 2 stages and spritebatches, there's often a lot more textures and sounds to keep track of. You're going to get 
+tired of putting every single texture into the dispose method and calling dispose() on it.
 
 The solution for that is 'AssetManager' - basically if you register your textures, sounds, skins, etc in an AssetManager object, you can just 
 call the 'dispose()' method on the AssetManager and it takes care of it. Sure, it adds a little overhead in that the AssetManager needs to 
@@ -41,7 +41,9 @@ extensions](https://github.com/libktx/ktx/tree/master/assets) so I can refer to 
 sound, which is called 'boom.ogg' like this boom().play().
 
 So by keeping all the things that need to be disposed of in App, and passing an instance of App into all of my screens and scenes, I can avoid 
-'static resources' and properly dispose of everything.
+using my 'AppObj' and all of the static resources' - but I don't think the static resources thing is necessary bad if you make sure it's all disposed of. There are some technical discussions surrounding exactly what the warning means (sometimes scenarios where you restart your app without exiting or if the 
+device is running out of memory are discussed). Passing a reference to the app or having some resources in static fields are both good 
+solutions, the main thing is to make sure you don't exit the app without calling dispose on all the disposables.
 
 You'll probably agree that understanding all of this would probably become a barrier of entry for a beginner, and that they'd probably be fine 
 just ignoring memory management until they've progressed more. That's how I felt when I was getting started.
