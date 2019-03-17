@@ -18,16 +18,6 @@ com.badlogic.gdx.graphics.Color: {
 		a: 1
 	}
 }
-com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
-	default: {
-		up: button
-		down: button
-		over: button
-		checked: button
-		checkedOver: button
-		disabled: button
-	}
-}
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: {
 		font: SDS_6x6
@@ -45,19 +35,14 @@ com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
 	default: {
-		background: window-light
+		background: transparent
 		titleFont: SDS_6x6
 		titleFontColor: black
-		stageBackground: background
-	}
-	transparent: {
-		background: window-dark
-		titleFont: SDS_6x6
-		titleFontColor: white
 	}
 	transparent: {
 		background: transparent
 		titleFont: SDS_6x6
+		titleFontColor: black
 	}
 }
 }

@@ -25,8 +25,6 @@ object AppObj {
     val hudView = StretchViewport(480f, 360f, hudCam)
     val hudStg = Stage(hudView , hudSb)
 
-    val skin = Skin(Gdx.files.internal("custom/skin/skinui.json"))
-
     lateinit var app: App
 
     init {

@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.AppObj
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
+import com.central.assets.Skins.*
 import ktx.actors.*
 
 
@@ -16,7 +17,7 @@ class TheEnd : Group() {
 
     init {
         val background = Image(space())
-        var label = Label("the end", AppObj.skin, "transparent")
+        var label = Label("the end", my_skin(), "transparent")
 
         AppObj.stg.clear()
 

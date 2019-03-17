@@ -7,14 +7,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
+import com.central.assets.Skins.*
 import com.central.AppObj
 import ktx.actors.*
 
 
 class StoryScene3 : Group() {
     private val background = Image(core())
-    private var label = Label("We'll destroy the ship...", AppObj.skin, "transparent")
-    private var label2 = Label("and use the escape pod.", AppObj.skin, "transparent")
+    private var label = Label("We'll destroy the ship...", my_skin(), "transparent")
+    private var label2 = Label("and use the escape pod.", my_skin(), "transparent")
 
     init {
         AppObj.stg.clear()

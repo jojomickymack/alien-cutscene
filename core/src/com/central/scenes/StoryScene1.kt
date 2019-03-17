@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
+import com.central.assets.Skins.*
 import com.central.AppObj
 import com.central.actors.Alien
 import ktx.actors.*
@@ -14,8 +15,8 @@ import ktx.actors.*
 
 class StoryScene1 : Group() {
     private val background = Image(ship())
-    private var label = Label("The aliens invaded the ship...", AppObj.skin, "transparent")
-    private var label2 = Label("and soon began to fight each other.", AppObj.skin, "transparent")
+    private var label = Label("The aliens invaded the ship...", my_skin(), "transparent")
+    private var label2 = Label("and soon began to fight each other.", my_skin(), "transparent")
     private val alien = Alien()
     private val alien2 = Alien()
 

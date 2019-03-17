@@ -1,21 +1,19 @@
 package com.central.screens
 
-import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.App
 import com.central.AppObj
 import ktx.actors.alpha
-import ktx.actors.plus
 import ktx.actors.plusAssign
 import ktx.app.KtxScreen
+import com.central.assets.Skins.*
 
 class Loading(val application: App) : KtxScreen {
-    private var label = Label("loading", AppObj.skin, "transparent")
+    private var label = Label("loading", my_skin(), "transparent")
 
     init {
         label.setPosition(AppObj.stg.width / 2 - label.width / 2, AppObj.stg.height / 2 - label.height / 2)
-        label.alpha = 0f
-        label += sequence(fadeIn(1f) + delay(1f) + fadeOut(1f))
+        label.alpha = 1f
 
         AppObj.stg += label
     }
@@ -28,16 +26,13 @@ class Loading(val application: App) : KtxScreen {
             AppObj.app.textureManager.update()
             AppObj.app.soundsManager.update()
             AppObj.app.tunesManager.update()
-            // this is just to make it seem like the loading takes longer - it does mess up the label's fadeIn/fadeOut
+            // this is just to make it seem like the loading takes longer - in reality it barely takes any time at all
             Thread.sleep(500)
         } else {
             println("loading complete")
+            AppObj.stg.clear()
             application.addScreen(Game(application))
             application.setScreen<Game>()
         }
-    }
-
-    override fun dispose() {
-        AppObj.stg.clear()
     }
 }

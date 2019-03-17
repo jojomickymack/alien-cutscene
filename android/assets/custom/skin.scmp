@@ -3,109 +3,7 @@ atlasData: {
 	atlasCurrent: true
 	drawables: [
 		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/background.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: background
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/button.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: button
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/speech-lower-left.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: speech-lower-left
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/textfield-dark.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: textfield-dark
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/textfield-light.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: textfield-light
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/window-dark.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: window-dark
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/skin/SDS_6x6.png
+			file: C:/projects/github/alien-cutscene/android/assets/skin/SDS_6x6.png
 			bgColor: {
 				r: 0
 				g: 0
@@ -116,23 +14,6 @@ atlasData: {
 			tint: null
 			tintName: null
 			name: SDS_6x6
-			tiled: false
-			minWidth: 0
-			minHeight: 0
-			customized: false
-		}
-		{
-			file: C:/projects/github/alien-cutscene/android/assets/custom/raw/window-light.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			visible: true
-			tint: null
-			tintName: null
-			name: window-light
 			tiled: false
 			minWidth: 0
 			minHeight: 0
@@ -184,7 +65,7 @@ jsonData: {
 		{
 			class: com.ray3k.skincomposer.data.FontData
 			name: SDS_6x6
-			file: C:/projects/github/alien-cutscene/android/assets/custom/skin/SDS_6x6.fnt
+			file: C:/projects/github/alien-cutscene/android/assets/skin/SDS_6x6.fnt
 		}
 	]
 	freeTypeFonts: []
@@ -200,42 +81,42 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: up
 						optional: true
-						value: button
+						value: null
 					}
 					down: {
 						class: com.ray3k.skincomposer.data.StyleProperty
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: down
 						optional: true
-						value: button
+						value: null
 					}
 					over: {
 						class: com.ray3k.skincomposer.data.StyleProperty
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: over
 						optional: true
-						value: button
+						value: null
 					}
 					checked: {
 						class: com.ray3k.skincomposer.data.StyleProperty
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: checked
 						optional: true
-						value: button
+						value: null
 					}
 					checkedOver: {
 						class: com.ray3k.skincomposer.data.StyleProperty
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: checkedOver
 						optional: true
-						value: button
+						value: null
 					}
 					disabled: {
 						class: com.ray3k.skincomposer.data.StyleProperty
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: disabled
 						optional: true
-						value: button
+						value: null
 					}
 					pressedOffsetX: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -281,6 +162,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.CheckBox: [
@@ -459,6 +341,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.ImageButton: [
@@ -595,6 +478,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton: [
@@ -780,6 +664,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.Label: [
@@ -811,6 +696,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
@@ -840,6 +726,7 @@ jsonData: {
 					}
 				}
 				deletable: true
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.List: [
@@ -892,6 +779,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.ProgressBar: [
@@ -958,6 +846,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
@@ -1022,6 +911,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.ScrollPane: [
@@ -1074,6 +964,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.SelectBox: [
@@ -1147,6 +1038,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.Slider: [
@@ -1227,6 +1119,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
@@ -1305,6 +1198,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.SplitPane: [
@@ -1322,6 +1216,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
@@ -1337,6 +1232,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.TextButton: [
@@ -1480,6 +1376,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.TextField: [
@@ -1567,6 +1464,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.TextTooltip: [
@@ -1598,6 +1496,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.Touchpad: [
@@ -1622,6 +1521,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.Tree: [
@@ -1667,6 +1567,7 @@ jsonData: {
 					}
 				}
 				deletable: false
+				parent: null
 			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.Window: [
@@ -1680,7 +1581,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: true
-						value: window-light
+						value: transparent
 					}
 					titleFont: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1701,46 +1602,11 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: stageBackground
 						optional: true
-						value: background
-					}
-				}
-				deletable: false
-			}
-			{
-				class: com.ray3k.skincomposer.data.StyleData
-				name: transparent
-				clazz: com.badlogic.gdx.scenes.scene2d.ui.Window
-				properties: {
-					background: {
-						class: com.ray3k.skincomposer.data.StyleProperty
-						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
-						name: background
-						optional: true
-						value: window-dark
-					}
-					titleFont: {
-						class: com.ray3k.skincomposer.data.StyleProperty
-						type: com.badlogic.gdx.graphics.g2d.BitmapFont
-						name: titleFont
-						optional: false
-						value: SDS_6x6
-					}
-					titleFontColor: {
-						class: com.ray3k.skincomposer.data.StyleProperty
-						type: com.badlogic.gdx.graphics.Color
-						name: titleFontColor
-						optional: true
-						value: white
-					}
-					stageBackground: {
-						class: com.ray3k.skincomposer.data.StyleProperty
-						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
-						name: stageBackground
-						optional: true
 						value: null
 					}
 				}
-				deletable: true
+				deletable: false
+				parent: null
 			}
 			{
 				class: com.ray3k.skincomposer.data.StyleData
@@ -1766,7 +1632,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.Color
 						name: titleFontColor
 						optional: true
-						value: null
+						value: black
 					}
 					stageBackground: {
 						class: com.ray3k.skincomposer.data.StyleProperty
@@ -1777,6 +1643,7 @@ jsonData: {
 					}
 				}
 				deletable: true
+				parent: null
 			}
 		]
 	}
