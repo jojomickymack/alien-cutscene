@@ -1,16 +1,15 @@
 package com.central.screens
 
 import com.central.App
-import com.central.AppObj
 import com.central.scenes.*
 import ktx.actors.plusAssign
 import ktx.app.KtxScreen
 import com.central.assets.Tunes.*
 
-class Game(val application: App) : KtxScreen {
+class Game(val app: App) : KtxScreen {
 
     init {
-        AppObj.stg += TitleScene()
+        app.stg += TitleScene(app)
     }
 
     override fun show() {
@@ -22,7 +21,7 @@ class Game(val application: App) : KtxScreen {
     }
 
     override fun render(delta: Float) {
-        AppObj.stg.act(delta)
-        AppObj.stg.draw()
+        app.stg.act(delta)
+        app.stg.draw()
     }
 }

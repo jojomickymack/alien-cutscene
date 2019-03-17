@@ -8,12 +8,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
 import com.central.assets.Skins.*
-import com.central.AppObj
+import com.central.App
 import com.central.actors.Alien
 import ktx.actors.*
 
 
-class StoryScene1 : Group() {
+class StoryScene1(app: App) : Group() {
     private val background = Image(ship())
     private var label = Label("The aliens invaded the ship...", my_skin(), "transparent")
     private var label2 = Label("and soon began to fight each other.", my_skin(), "transparent")
@@ -21,35 +21,35 @@ class StoryScene1 : Group() {
     private val alien2 = Alien()
 
     init {
-        AppObj.stg.clear()
+        app.stg.clear()
 
         val size = 200f
 
         background.alpha = 0f
 
-        label.setPosition(AppObj.stg.width / 2 - label.width / 2, AppObj.stg.height / 2 - label.height / 2)
+        label.setPosition(app.stg.width / 2 - label.width / 2, app.stg.height / 2 - label.height / 2)
         label.alpha = 0f
 
-        label2.setPosition(AppObj.stg.width / 2 - label2.width / 2, AppObj.stg.height / 2 - label.height / 2)
+        label2.setPosition(app.stg.width / 2 - label2.width / 2, app.stg.height / 2 - label.height / 2)
         label2.alpha = 0f
 
         alien.alpha = 0f
         alien2.alpha = 0f
 
-        background.setSize(AppObj.stg.width, AppObj.stg.height)
+        background.setSize(app.stg.width, app.stg.height)
         background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
-                    AppObj.stg.clear()
-                    AppObj.stg.addActor(StoryScene2())
+                    app.stg.clear()
+                    app.stg.addActor(StoryScene2(app))
                 }
         )
 
         alien.setSize(size, size)
-        alien.setPosition(AppObj.stg.width - alien.width, AppObj.stg.height - alien.height)
+        alien.setPosition(app.stg.width - alien.width, app.stg.height - alien.height)
 
         alien2.setSize(size, size)
-        alien2.setPosition(0f, AppObj.stg.height - alien.height)
+        alien2.setPosition(0f, app.stg.height - alien.height)
         alien2.flip = true
 
         label += sequence(delay(2f) + fadeIn(2f)) + delay(2f) + fadeOut(2f)
@@ -74,7 +74,7 @@ class StoryScene1 : Group() {
         alien2 += sequence(fadeIn(3f) +
                 Actions.run {
                     alien2.currentAnimation = alien2.walk
-                } + moveTo(AppObj.stg.width - alien2.width, 0f, 2f) +
+                } + moveTo(app.stg.width - alien2.width, 0f, 2f) +
                 Actions.run {
                     alien2.currentAnimation = alien2.stand
                 } + Actions.delay(2f) +

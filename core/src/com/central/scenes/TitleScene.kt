@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
-import com.central.AppObj
+import com.central.App
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
 import com.central.assets.Skins.*
@@ -13,24 +13,23 @@ import ktx.actors.alpha
 import ktx.actors.plus
 import ktx.actors.plusAssign
 
-class TitleScene : Group() {
+class TitleScene(app: App) : Group() {
 
     init {
-
         val background = Image(alien_egg())
         val logo = Image(alien_logo())
         var label = Label("In space no one hears you scream.", my_skin(), "transparent")
 
         // set positions for all of the elements, set alphas to 0 because they fade in as the scene progresses
 
-        logo.setSize(AppObj.stg.width, logo.height)
-        logo.setPosition(0f, AppObj.stg.height - logo.height)
+        logo.setSize(app.stg.width, logo.height)
+        logo.setPosition(0f, app.stg.height - logo.height)
         logo.alpha = 0f
 
-        background.setPosition(AppObj.stg.width / 2 - background.width / 2, 0f)
+        background.setPosition(app.stg.width / 2 - background.width / 2, 0f)
         background.alpha = 0f
 
-        label.setPosition(AppObj.hudStg.width / 2 - label.width / 2, AppObj.hudStg.height / 2 - label.height / 2)
+        label.setPosition(app.hudStg.width / 2 - label.width / 2, app.hudStg.height / 2 - label.height / 2)
         label.alpha = 0f
 
         /**
@@ -50,8 +49,8 @@ class TitleScene : Group() {
 
         background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
                 Actions.run {
-                    AppObj.stg.clear()
-                    AppObj.stg.addActor(StoryScene1())
+                    app.stg.clear()
+                    app.stg.addActor(StoryScene1(app))
                 }
         )
 

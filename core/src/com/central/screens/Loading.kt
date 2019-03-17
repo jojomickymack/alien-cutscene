@@ -2,37 +2,36 @@ package com.central.screens
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.App
-import com.central.AppObj
 import ktx.actors.alpha
-import ktx.actors.plusAssign
 import ktx.app.KtxScreen
 import com.central.assets.Skins.*
+import ktx.actors.plusAssign
 
-class Loading(val application: App) : KtxScreen {
+class Loading(val app: App) : KtxScreen {
     private var label = Label("loading", my_skin(), "transparent")
 
     init {
-        label.setPosition(AppObj.stg.width / 2 - label.width / 2, AppObj.stg.height / 2 - label.height / 2)
+        label.setPosition(app.stg.width / 2 - label.width / 2, app.stg.height / 2 - label.height / 2)
         label.alpha = 1f
 
-        AppObj.stg += label
+        app.stg += label
     }
 
     override fun render(delta: Float) {
-        AppObj.stg.act(delta)
-        AppObj.stg.draw()
-        if (!AppObj.app.tunesManager.update() || !AppObj.app.soundsManager.update() || !AppObj.app.textureManager.update()) {
+        app.stg.act(delta)
+        app.stg.draw()
+        if (!app.tunesManager.update() || !app.soundsManager.update() || !app.textureManager.update()) {
             println("still loading (simulating longer load time)")
-            AppObj.app.textureManager.update()
-            AppObj.app.soundsManager.update()
-            AppObj.app.tunesManager.update()
+            app.textureManager.update()
+            app.soundsManager.update()
+            app.tunesManager.update()
             // this is just to make it seem like the loading takes longer - in reality it barely takes any time at all
             Thread.sleep(500)
         } else {
             println("loading complete")
-            AppObj.stg.clear()
-            application.addScreen(Game(application))
-            application.setScreen<Game>()
+            app.stg.clear()
+            app.addScreen(Game(app))
+            app.setScreen<Game>()
         }
     }
 }
