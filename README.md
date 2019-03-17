@@ -44,6 +44,6 @@ sprite.draw(batch)
 
 This example is supposed to show how to create a little example in a simple way, and I am not cleaning up after myself like I should (in libgdx, you should dispose of all of the sounds, pictures, and other assets).
 
-I created a separate branch in this project called 'asset_management' where I use [AssetManager](https://github.com/libgdx/libgdx/wiki/Managing-your-assets) to load everything in an organized way and dispose of it when the game ends. I use some techniques from [libktx's 'asset' extensions](https://github.com/libktx/ktx/tree/master/assets).
+I created a separate branch in this project called ['asset_management'](https://github.com/jojomickymack/alien-cutscene/tree/asset_management) where I use [AssetManager](https://github.com/libgdx/libgdx/wiki/Managing-your-assets) to load everything in an organized way and dispose of it when the game ends. I use some techniques from [libktx's 'asset' extensions](https://github.com/libktx/ktx/tree/master/assets).
 
 You'll probably prefer the version without asset management if you're just getting started with libgdx/ktx - but when you finally publish your game, asset management can have a dramatic effect on performance and making sure your app doesn't leak memory.
