@@ -1,25 +1,24 @@
 package com.central.screens
 
-import com.badlogic.gdx.Gdx
 import com.central.App
 import com.central.AppObj
-import com.central.scenes.StoryScene1
-import com.central.scenes.StoryScene2
-import com.central.scenes.TitleScene
+import com.central.scenes.*
 import ktx.actors.plusAssign
 import ktx.app.KtxScreen
+import com.central.assets.Tunes.*
 
 class Game(val application: App) : KtxScreen {
 
-    val music = Gdx.audio.newMusic(Gdx.files.internal("theme.ogg"))
-
     init {
         AppObj.stg += TitleScene()
+    }
 
+    override fun show() {
         // you can quickly skip to whichever scene you're working on
         //AppObj.stg += StoryScene2()
-        music.volume = 0.5f
-        music.play()
+
+        theme().volume = 0.5f
+        theme().play()
     }
 
     override fun render(delta: Float) {

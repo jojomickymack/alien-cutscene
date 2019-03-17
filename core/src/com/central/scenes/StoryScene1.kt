@@ -1,18 +1,19 @@
 package com.central.scenes
 
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
+import com.central.assets.Images.*
+import com.central.assets.Sounds.*
 import com.central.AppObj
 import com.central.actors.Alien
 import ktx.actors.*
 
 
 class StoryScene1 : Group() {
-    private val background = Image(Texture("ship.png"))
+    private val background = Image(ship())
     private var label = Label("The aliens invaded the ship...", AppObj.skin, "transparent")
     private var label2 = Label("and soon began to fight each other.", AppObj.skin, "transparent")
     private val alien = Alien()
@@ -35,7 +36,7 @@ class StoryScene1 : Group() {
         alien2.alpha = 0f
 
         background.setSize(AppObj.stg.width, AppObj.stg.height)
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } +
+        background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
@@ -62,7 +63,7 @@ class StoryScene1 : Group() {
                 } + Actions.delay(2f) +
                 Actions.run {
                     alien.flip = true
-                    AppObj.alienSnd.setVolume(AppObj.alienSnd.play(), 0.2f)
+                    roar().setVolume(roar().play(), 0.2f)
                 },
                 Actions.run {
                     alien.currentAnimation = alien.fight

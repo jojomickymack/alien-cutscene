@@ -1,15 +1,15 @@
 package com.central.actors
 
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.scenes.scene2d.Actor
 import ktx.actors.alpha
+import com.central.assets.Images.*
 
 class Alien: Actor() {
-    private val tex = Texture("alien-sprite.png")
+    private val tex = alien_sprite()
     private var walkSheet = TextureRegion(tex, 0, 0, tex.width, tex.height)
     private val regions = walkSheet.split(64, 53)[0]
 

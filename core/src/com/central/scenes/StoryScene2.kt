@@ -1,19 +1,19 @@
 package com.central.scenes
 
-import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
+import com.central.assets.Images.*
+import com.central.assets.Sounds.*
 import com.central.AppObj
 import ktx.actors.*
 
 
 class StoryScene2 : Group() {
-    private val background = Image(Texture("room.png"))
-    private val ripley = Image(Texture("ripley.png"))
+    private val background = Image(room())
+    private val ripley = Image(ripley())
     private var label = Label("We need to escape", AppObj.skin, "transparent")
     private var label2 = Label("or they'll tear us apart!", AppObj.skin, "transparent")
 
@@ -33,7 +33,7 @@ class StoryScene2 : Group() {
         background.setSize(AppObj.stg.width, AppObj.stg.height)
         background.alpha = 0f
 
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } +
+        background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()

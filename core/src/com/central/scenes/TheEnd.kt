@@ -1,21 +1,23 @@
 package com.central.scenes
 
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.AppObj
+import com.central.assets.Images.*
+import com.central.assets.Sounds.*
 import ktx.actors.*
 
 
 class TheEnd : Group() {
-    private val background = Image(Texture("space.png"))
-    private var label = Label("the end", AppObj.skin, "transparent")
 
     init {
+        val background = Image(space())
+        var label = Label("the end", AppObj.skin, "transparent")
+
         AppObj.stg.clear()
 
         background.setSize(AppObj.stg.width, AppObj.stg.height)
@@ -24,10 +26,10 @@ class TheEnd : Group() {
         label.setPosition(AppObj.stg.width / 2 - label.width / 2, AppObj.stg.height / 2 - label.height / 2)
         label.alpha = 0f
 
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } +
+        background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } +
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
-                    AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f)
+                    suspense().setVolume(suspense().play(), 0.5f)
                 },
                 delay(3f),
                 Actions.run {

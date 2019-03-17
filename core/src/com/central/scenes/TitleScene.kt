@@ -1,24 +1,25 @@
 package com.central.scenes
 
-import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.scenes.scene2d.actions.Actions.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.AppObj
+import com.central.assets.Images.*
+import com.central.assets.Sounds.*
 import ktx.actors.alpha
 import ktx.actors.plus
 import ktx.actors.plusAssign
 
-
 class TitleScene : Group() {
-    private val background = Image(Texture("alien-egg.png"))
-    private val logo = Image(Texture("alien-logo.png"))
-    private var label = Label("In space no one hears you scream.", AppObj.skin, "transparent")
 
     init {
+
+        val background = Image(alien_egg())
+        val logo = Image(alien_logo())
+        var label = Label("In space no one hears you scream.", AppObj.skin, "transparent")
+
         // set positions for all of the elements, set alphas to 0 because they fade in as the scene progresses
 
         logo.setSize(AppObj.stg.width, logo.height)
@@ -46,7 +47,7 @@ class TitleScene : Group() {
         // background appears first, the fade in takes 2 seconds, it then waits 4, then fades out in 2
         // it ends the scene after a total of 8 seconds
 
-        background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
+        background += sequence(Actions.run { suspense().setVolume(suspense().play(), 0.5f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
                     AppObj.stg.addActor(StoryScene1())

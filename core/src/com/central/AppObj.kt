@@ -1,11 +1,14 @@
 package com.central
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.OrthographicCamera
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.StretchViewport
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import ktx.assets.*
 
 object AppObj {
 
@@ -23,9 +26,10 @@ object AppObj {
     val hudStg = Stage(hudView , hudSb)
 
     val skin = Skin(Gdx.files.internal("custom/skin/skinui.json"))
-    val suspense = Gdx.audio.newSound(Gdx.files.internal("suspense.ogg"))
-    val explosion = Gdx.audio.newSound(Gdx.files.internal("explosion.ogg"))
-    val alienSnd = Gdx.audio.newSound(Gdx.files.internal("roar.ogg"))
 
     lateinit var app: App
+
+    init {
+
+    }
 }
