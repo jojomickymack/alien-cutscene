@@ -1,41 +1,47 @@
-# LibGdx/Ktx Example Of Scene2d Actions and Sequences
+# Reorganizing Code To Properly Dispose Of Assets And 'Disposables'
 
-![cutscene01](.github/cutscene01.png?raw=true)
+Examples are meant to show an implementation in its simplest form - anything that's not necessary for the demonstration shouldn't be there. 
+I've seen hundreds of code examples that invalidate themselves by involving way more than the subject of the demonstration - it becomes a lot 
+of work to sort out what's directly important in the implemenation.
 
-If you've ever thought to yourself that your game needs a cutscene or intro sequence, Libgdx Actions is something you'll want to look at. If you're new to scene2d, allow for me to explain.
+That's why I left the master branch of this scene2d example simple - but the fact is, it's exemplifying some pretty bad habits, listed below.
 
-- Scene2d is an optional framework that is part of Libgdx which allow for you to add 'Actors' to a 'Stage'. The advantage of this is that by adding your actors to a stage, and then calling the stage's act and draw methods in your game loop, all actors will automatically have their act and draw methods called.
+- textures, sounds, and other assets are loaded but never released
 
-- Beyond that, Actors can be easily faded in/out, translated or rotated by adding Actions to the actor. To chain actions one after the other synchronously (running one after the other instead of at the same time), you can use a sequence.
+- there's an 'object' called 'AppObj' where various members are set up statically, which is a bad practice (especially on Android), and they 
+are never disposed, which can result in memory leaks
 
-- A whole collection of ui widgets like Window, Button, and Label all extend Actor, so making some text fade in on the screen is as simple as instantiating the right class, adding the fadeIn action to it, and adding the actor to the stage.
+I like to store spritebatches, stages, sounds, and other objects that need to be accessed from different parts of the game in an object called 
+AppObj and then just access them statically like this 'AppObj.stage.batch' for example - well, that's convenient, but Android Studio 
+underlines these 'static resources' and says this about them:
 
-- A 'Group' is a collection of Actors, and if you add a bunch of actors to a group, then add the group to a Stage, all of those actors will have their act and draw methods called.
+> Don't make resources static, unless you take care to properly manage them. Static resources can cause problems on Android, because the 
+life-cycle of a static variable is not necessarily the same as the life-cycle of your application.  Note that Kotlin top-level properties and 
+properties of object literals and companion objects are compiled to static properties. 
 
-- LibKtx has some really helpful syntax helpers that make it so you can add Actors to a Stage, an Action to an Actor, or add Actions to a sequence by using the += operator.
+This means that using static members like this is fine on desktop, but on Android there's no guarentee that your static resource will behave 
+the same way. Kotlin makes a lot of things static which might not appear that way (especially since the word 'static' doesn't exist in 
+kotlin). For example, if you just put a methods and variables all on their own in a file, they are static. 
 
-This example shows a title screen and tells a short story using some Groups that represent different pieces of the story. I think it's smart to split up all the actions in your cutscene into chunks like this, just because it could potentially get pretty complicated if you tried to jam your whole cutscene into one series of actions.
+On top of that, because libgdx is circumventing the java garbage collector, a lot of objects need to be 'disposed of'. While there's no 
+apparent penelty for not doing this, in reality the memory isn't getting released. That's what a memory leak is. All you have to do is keep 
+track of these 'disposable' types and make sure that you call their 'dispose()' method when you override the dispose() method in your Game or 
+Screen.
 
-![cutscene02](.github/cutscene02.png?raw=true)  
+There is a list of what objects require this in the [libgdx documentation on memory management](https://github.com/libgdx/libgdx/wiki/Memory-management)
 
-[image credit to mixmasterangel](https://www.deviantart.com/mixmasterangel/art/Ellen-Ripley-436035869)
+While my games only have 1 or 2 stages and spritebatches, there's often a lot more textures and sounds to keep track of. That would become a 
+heck of a lot of work making sure every single picture got its dispose() method called. 
 
-Keep in mind that if you want to trigger an event that isn't necessarily an Action, you can always add 
+The solution for that is 'AssetManager' - basically if you register your textures, sounds, skins, etc in an AssetManager object, you can just 
+call the 'dispose()' method on the AssetManager and it takes care of it. Sure, it adds a little overhead in that the AssetManager needs to 
+know the type of asset you're getting from it, but in this application I use one AssetManager for all the sounds, one for all the Images etc, 
+so I can ignore it. I'm using the 'type-safe assets' approach described here [ktx 
+extensions](https://github.com/libktx/ktx/tree/master/assets) so I can refer to each asset by name - for example I can retrieve my explosion 
+sound, which is called 'boom.ogg' like this boom().play().
 
-```kotlin
-Actions.run { println("call any method from here") } 
-```
+So by keeping all the things that need to be disposed of in App, and passing an instance of App into all of my screens and scenes, I can avoid 
+'static resources' and properly dispose of everything.
 
-and add that to an Actor or sequence.
-
-Another thing you might want to do is use some sprites in your cutscene - this project has an example of that with the alien sprite in the 2nd 'scene'. Sprite does not extend Actor, but there's no reason why you can't create a class that extends Actor and have a Sprite as a member. In order to make your Actions apply to your Sprite you'll want to transfer the position, size, and other aspects from the Actor to the Sprite in your overridden act and draw functions.
-
-```kotlin
-// in act
-sprite.setSize(this.width, this.height)
-sprite.setPosition(this.x, this.y)
-
-// in draw
-sprite.setAlpha(this.alpha)
-sprite.draw(batch)
-```
+You'll probably agree that understanding all of this would probably become a barrier of entry for a beginner, and that they'd probably be fine 
+just ignoring memory management until they've progressed more. That's how I felt when I was getting started.
