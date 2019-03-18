@@ -1,4 +1,4 @@
-# Reorganizing Code To Properly Dispose Of Assets And 'Disposables'
+# Reorganizing Code To Use An Asset Manager And Dispose Of Everything Responsibly
 
 Examples are meant to show an implementation in its simplest form - anything that's not necessary for the demonstration shouldn't be there. 
 I've seen hundreds of code examples that invalidate themselves by involving way more than the subject of the demonstration - it becomes a lot 
