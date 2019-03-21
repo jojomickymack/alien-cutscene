@@ -12,7 +12,8 @@ import ktx.actors.*
 
 
 class StoryScene1 : Group() {
-    private val background = Image(Texture("ship.png"))
+    private val shipTex = Texture("ship.png")
+    private val background = Image(shipTex)
     private var label = Label("The aliens invaded the ship...", AppObj.skin, "transparent")
     private var label2 = Label("and soon began to fight each other.", AppObj.skin, "transparent")
     private val alien = Alien()
@@ -39,6 +40,7 @@ class StoryScene1 : Group() {
                 fadeIn(2f) + delay(10f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
+                    this.dispose()
                     AppObj.stg.addActor(StoryScene2())
                 }
         )
@@ -89,5 +91,10 @@ class StoryScene1 : Group() {
         this += alien2
         this += label
         this += label2
+    }
+
+    fun dispose() {
+        shipTex.dispose()
+        println("memory freed from 'StoryScene1'")
     }
 }

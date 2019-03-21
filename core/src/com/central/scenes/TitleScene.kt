@@ -1,6 +1,5 @@
 package com.central.scenes
 
-import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
@@ -14,8 +13,10 @@ import ktx.actors.plusAssign
 
 
 class TitleScene : Group() {
-    private val background = Image(Texture("alien-egg.png"))
-    private val logo = Image(Texture("alien-logo.png"))
+    private val bgTex = Texture("alien-egg.png")
+    private val logoTex = Texture("alien-logo.png")
+    private val background = Image(bgTex)
+    private val logo = Image(logoTex)
     private var label = Label("In space no one hears you scream.", AppObj.skin, "transparent")
 
     init {
@@ -49,6 +50,7 @@ class TitleScene : Group() {
         background += sequence(Actions.run { AppObj.suspense.setVolume(AppObj.suspense.play(), 0.5f) } + fadeIn(2f) + delay(4f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
+                    this.dispose()
                     AppObj.stg.addActor(StoryScene1())
                 }
         )
@@ -65,5 +67,11 @@ class TitleScene : Group() {
         this += background
         this += logo
         this += label
+    }
+
+    fun dispose() {
+        bgTex.dispose()
+        logoTex.dispose()
+        println("memory freed from 'TitleScene'")
     }
 }

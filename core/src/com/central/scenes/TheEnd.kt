@@ -12,7 +12,8 @@ import ktx.actors.*
 
 
 class TheEnd : Group() {
-    private val background = Image(Texture("space.png"))
+    private val spaceTex = Texture("space.png")
+    private val background = Image(spaceTex)
     private var label = Label("the end", AppObj.skin, "transparent")
 
     init {
@@ -32,6 +33,7 @@ class TheEnd : Group() {
                 delay(3f),
                 Actions.run {
                     AppObj.stg.clear()
+                    this.dispose()
                     Gdx.app.exit()
                 }
         )
@@ -40,5 +42,10 @@ class TheEnd : Group() {
 
         this += background
         this += label
+    }
+
+    fun dispose() {
+        spaceTex.dispose()
+        println("memory freed from 'TheEnd'")
     }
 }

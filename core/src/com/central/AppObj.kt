@@ -2,6 +2,7 @@ package com.central
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.OrthographicCamera
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.StretchViewport
@@ -27,5 +28,22 @@ object AppObj {
     val explosion = Gdx.audio.newSound(Gdx.files.internal("explosion.ogg"))
     val alienSnd = Gdx.audio.newSound(Gdx.files.internal("roar.ogg"))
 
+    val alienTex = Texture("alien-sprite.png")
+
     lateinit var app: App
+
+    fun dispose() {
+        sb.dispose()
+        stg.dispose()
+
+        hudSb.dispose()
+        hudStg.dispose()
+
+        skin.dispose()
+        suspense.dispose()
+        explosion.dispose()
+        alienSnd.dispose()
+
+        alienTex.dispose()
+    }
 }

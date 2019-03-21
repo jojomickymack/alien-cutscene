@@ -1,6 +1,5 @@
 package com.central.scenes
 
-import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
@@ -11,7 +10,8 @@ import ktx.actors.*
 
 
 class StoryScene4: Group() {
-    private val background = Image(Texture("explosion.png"))
+    private val backgroundTex = Texture("explosion.png")
+    private val background = Image(backgroundTex)
 
     init {
         AppObj.stg.clear()
@@ -22,10 +22,16 @@ class StoryScene4: Group() {
         background += sequence(Actions.run { AppObj.explosion.setVolume(AppObj.explosion.play(), 0.2f) } + fadeIn(2f) + delay(2f) + fadeOut(2f) +
                 Actions.run {
                     AppObj.stg.clear()
+                    this.dispose()
                     AppObj.stg.addActor(TheEnd())
                 }
         )
 
         this += background
+    }
+
+    fun dispose() {
+        backgroundTex.dispose()
+        println("memory freed from 'StoryScene4'")
     }
 }

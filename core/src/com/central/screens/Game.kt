@@ -26,4 +26,10 @@ class Game(val application: App) : KtxScreen {
         AppObj.stg.act(delta)
         AppObj.stg.draw()
     }
+
+    override fun dispose() {
+        music.dispose()
+        println("all disposable memory freed in Game")
+        super.dispose()
+    }
 }
