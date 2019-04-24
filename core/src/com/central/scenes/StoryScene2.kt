@@ -24,9 +24,6 @@ class StoryScene2 : Group() {
 
         table {
             label = label("We need to escape", "transparent")
-        }
-
-        table {
             label2 = label("or they'll tear us apart!", "transparent")
         }
 
