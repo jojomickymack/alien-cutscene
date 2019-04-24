@@ -10,6 +10,7 @@ import com.central.AppObj
 import ktx.actors.alpha
 import ktx.actors.plus
 import ktx.actors.plusAssign
+import ktx.scene2d.*
 
 
 class TitleScene : Group() {
@@ -17,9 +18,13 @@ class TitleScene : Group() {
     private val logoTex = Texture("alien-logo.png")
     private val background = Image(bgTex)
     private val logo = Image(logoTex)
-    private var label = Label("In space no one hears you scream.", AppObj.skin, "transparent")
+    private lateinit var label: Label
 
     init {
+        table {
+            label = label("In space no one hears you scream.", "transparent")
+        }
+
         // set positions for all of the elements, set alphas to 0 because they fade in as the scene progresses
 
         logo.setSize(AppObj.stg.width, logo.height)

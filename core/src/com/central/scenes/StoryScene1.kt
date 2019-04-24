@@ -9,18 +9,27 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.AppObj
 import com.central.actors.Alien
 import ktx.actors.*
+import ktx.scene2d.*
 
 
 class StoryScene1 : Group() {
     private val shipTex = Texture("ship.png")
     private val background = Image(shipTex)
-    private var label = Label("The aliens invaded the ship...", AppObj.skin, "transparent")
-    private var label2 = Label("and soon began to fight each other.", AppObj.skin, "transparent")
+    private lateinit var label: Label
+    private lateinit var label2: Label
     private val alien = Alien()
     private val alien2 = Alien()
 
     init {
         AppObj.stg.clear()
+
+        table {
+            label = label("The aliens invaded the ship...", "transparent")
+        }
+
+        table {
+            label2 = label("and soon began to fight each other.", "transparent")
+        }
 
         val size = 200f
 

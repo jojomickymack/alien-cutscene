@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.StretchViewport
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import ktx.scene2d.Scene2DSkin
 
 object AppObj {
 
@@ -23,7 +24,6 @@ object AppObj {
     val hudView = StretchViewport(480f, 360f, hudCam)
     val hudStg = Stage(hudView , hudSb)
 
-    val skin = Skin(Gdx.files.internal("custom/skin/skinui.json"))
     val suspense = Gdx.audio.newSound(Gdx.files.internal("suspense.ogg"))
     val explosion = Gdx.audio.newSound(Gdx.files.internal("explosion.ogg"))
     val alienSnd = Gdx.audio.newSound(Gdx.files.internal("roar.ogg"))
@@ -32,6 +32,10 @@ object AppObj {
 
     lateinit var app: App
 
+    init {
+        Scene2DSkin.defaultSkin = Skin(Gdx.files.internal("custom/skin/skinui.json"))
+    }
+
     fun dispose() {
         sb.dispose()
         stg.dispose()
@@ -39,7 +43,6 @@ object AppObj {
         hudSb.dispose()
         hudStg.dispose()
 
-        skin.dispose()
         suspense.dispose()
         explosion.dispose()
         alienSnd.dispose()
