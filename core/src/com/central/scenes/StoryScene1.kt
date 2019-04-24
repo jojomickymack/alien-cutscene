@@ -25,9 +25,6 @@ class StoryScene1(app: App) : Group() {
 
         table {
             label = label("The aliens invaded the ship...", "transparent")
-        }
-
-        table {
             label2 = label("and soon began to fight each other.", "transparent")
         }
 
