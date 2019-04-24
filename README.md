@@ -4,11 +4,7 @@ Examples are meant to show an implementation in its simplest form - anything tha
 I've seen hundreds of code examples that invalidate themselves by involving way more than the subject of the demonstration - it becomes a lot 
 of work to sort out what's directly important in the implemenation.
 
-That's why I left the master branch of this scene2d example simple - but the fact is, it's exemplifying some pretty bad habits, listed below.
-
-- textures, sounds, and other assets are loaded but never released
-
-- there's an 'object' called 'AppObj' where various members are set up statically and they are never disposed
+That's why I left the master branch of this scene2d example simple - but the fact is, it's exemplifying a bad habit - there's an object called 'AppObj' where various members are set up statically.
 
 I like to store spritebatches, stages, sounds, and other objects that need to be accessed from different parts of the game in an object called AppObj and then just access them statically like this 'AppObj.stage.batch' for example - well, that's convenient, but Android Studio 
 underlines these 'static resources' and says this about them:

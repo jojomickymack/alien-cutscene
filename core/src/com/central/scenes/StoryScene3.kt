@@ -8,17 +8,25 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.App
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
-import com.central.assets.Skins.*
 import ktx.actors.*
+import ktx.scene2d.*
 
 
 class StoryScene3(app: App) : Group() {
     private val background = Image(core())
-    private var label = Label("We'll destroy the ship...", my_skin(), "transparent")
-    private var label2 = Label("and use the escape pod.", my_skin(), "transparent")
+    private lateinit var label: Label
+    private lateinit var label2: Label
 
     init {
         app.stg.clear()
+
+        table {
+            label = label("We'll destroy the ship...", "transparent")
+        }
+
+        table {
+            label2 = label("and use the escape pod.", "transparent")
+        }
 
         label.setPosition(app.stg.width / 2 - label.width / 2, app.stg.height / 2 - label.height / 2)
         label.alpha = 0f

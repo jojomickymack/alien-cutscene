@@ -7,21 +7,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
-import com.central.assets.Skins.*
 import com.central.App
 import com.central.actors.Alien
 import ktx.actors.*
+import ktx.scene2d.*
 
 
 class StoryScene1(app: App) : Group() {
     private val background = Image(ship())
-    private var label = Label("The aliens invaded the ship...", my_skin(), "transparent")
-    private var label2 = Label("and soon began to fight each other.", my_skin(), "transparent")
+    private lateinit var label: Label
+    private lateinit var label2: Label
     private val alien = Alien()
     private val alien2 = Alien()
 
     init {
         app.stg.clear()
+
+        table {
+            label = label("The aliens invaded the ship...", "transparent")
+        }
+
+        table {
+            label2 = label("and soon began to fight each other.", "transparent")
+        }
 
         val size = 200f
 
@@ -61,7 +69,7 @@ class StoryScene1(app: App) : Group() {
                 } + moveTo(0f, 0f, 2f) +
                 Actions.run {
                     alien.currentAnimation = alien.stand
-                } + Actions.delay(2f) +
+                } + delay(2f) +
                 Actions.run {
                     alien.flip = true
                     roar().setVolume(roar().play(), 0.2f)
@@ -77,7 +85,7 @@ class StoryScene1(app: App) : Group() {
                 } + moveTo(app.stg.width - alien2.width, 0f, 2f) +
                 Actions.run {
                     alien2.currentAnimation = alien2.stand
-                } + Actions.delay(2f) +
+                } + delay(2f) +
                 Actions.run {
                     alien2.flip = false
                 } +

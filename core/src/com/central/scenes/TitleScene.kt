@@ -8,17 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.App
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
-import com.central.assets.Skins.*
 import ktx.actors.alpha
 import ktx.actors.plus
 import ktx.actors.plusAssign
+import ktx.scene2d.*
 
 class TitleScene(app: App) : Group() {
+
+    private lateinit var label: Label
 
     init {
         val background = Image(alien_egg())
         val logo = Image(alien_logo())
-        var label = Label("In space no one hears you scream.", my_skin(), "transparent")
+
+        table{
+            label = label("In space no one hears you scream.", "transparent")
+        }
 
         // set positions for all of the elements, set alphas to 0 because they fade in as the scene progresses
 

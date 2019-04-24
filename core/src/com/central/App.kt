@@ -6,17 +6,17 @@ import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
+import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.utils.viewport.StretchViewport
 import com.central.assets.Images
-import com.central.assets.Skins
 import com.central.assets.Sounds
 import com.central.assets.Tunes
 import com.central.screens.Loading
 import ktx.app.KtxGame
+import ktx.scene2d.Scene2DSkin
 
 class App : KtxGame<Screen>() {
 
-    val skinsManager = AssetManager()
     val textureManager = AssetManager()
     val soundsManager = AssetManager()
     val tunesManager = AssetManager()
@@ -44,7 +44,8 @@ class App : KtxGame<Screen>() {
 
     override fun create() {
 
-        Skins.manager = this.skinsManager
+        Scene2DSkin.defaultSkin = Skin(Gdx.files.internal("skin/my_skin.json"))
+
         Images.manager = this.textureManager
         Sounds.manager = this.soundsManager
         Tunes.manager = this.tunesManager
@@ -63,20 +64,6 @@ class App : KtxGame<Screen>() {
         this.hudView = StretchViewport(480f, 360f, this.hudCam)
         this.hudStg = Stage(this.hudView , this.hudSb)
 
-        /**
-         * since this game doesn't have a lot to load, it's ok to load everything upfront
-         * with more assets you'd want to strategically call load() only on what needs to be
-         * ready for the next scene and unload the stuff you're done with
-         *
-         * the skin should be loaded first because it's used in the loading screen
-         */
-        Skins.values().forEach { it.load() }
-
-        /**
-         * load the skin before proceeding, it's needed for that label
-         */
-        while (!this.skinsManager.update()) this.skinsManager.update()
-
         Images.values().forEach { it.load() }
         Sounds.values().forEach { it.load() }
         Tunes.values().forEach { it.load() }
@@ -87,7 +74,6 @@ class App : KtxGame<Screen>() {
     }
 
     override fun dispose() {
-        this.skinsManager.dispose()
         this.textureManager.dispose()
         this.soundsManager.dispose()
         this.tunesManager.dispose()

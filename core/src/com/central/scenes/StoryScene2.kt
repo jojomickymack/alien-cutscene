@@ -7,19 +7,27 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.central.assets.Images.*
 import com.central.assets.Sounds.*
-import com.central.assets.Skins.*
 import com.central.App
 import ktx.actors.*
+import ktx.scene2d.*
 
 
 class StoryScene2(app: App) : Group() {
     private val background = Image(room())
     private val ripley = Image(ripley())
-    private var label = Label("We need to escape", my_skin(), "transparent")
-    private var label2 = Label("or they'll tear us apart!", my_skin(), "transparent")
+    private lateinit var label: Label
+    private lateinit var label2: Label
 
     init {
         app.stg.clear()
+
+        table {
+            label = label("We need to escape", "transparent")
+        }
+
+        table {
+            label2 = label("or they'll tear us apart!", "transparent")
+        }
 
         ripley.setSize(app.stg.width / 2, app.stg.height)
         ripley.setPosition(0f - ripley.width, 0f)
